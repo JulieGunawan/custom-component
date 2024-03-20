@@ -1,0 +1,22 @@
+{
+  "name": "is-header-created",
+  "version": "1.0.0",
+  "description": "Is the header string created?",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JulieGunawan/custom-component.git"
+  },
+  "keywords": [
+    "ISHEADER"
+  ],
+  "author": "Julie Gunawan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JulieGunawan/custom-component/issues"
+  },
+  "homepage": "https://github.com/JulieGunawan/custom-component#readme"
+}
