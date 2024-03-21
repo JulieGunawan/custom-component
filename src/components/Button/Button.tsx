@@ -6,7 +6,14 @@ interface Props {
 
 const Button:FC<Props> = ({children}) => {
     return (
-        <button>{children}</button>
+        <button style={{
+            padding: '1em',
+            backgroundColor: 'red',
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer'
+        }}>{children}</button>
     )
 }
 
