@@ -1,14 +1,15 @@
 import { IconButton, Stack, Typography } from "@mui/material";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
-import moment from "moment";
+import moment, { Moment } from "moment";
 import React from "react";
 import { FC } from "react";
 
 interface Prop {
-  children?: React.ReactNode;
+  changeMonth: (action: "add" | "subtract") => void;
+  date: Moment;
 }
 
-const Controls: FC<Prop> = () => {
+const Controls: FC<Prop> = ({ changeMonth, date }) => {
   return (
     <Stack
       direction="row"
@@ -18,10 +19,18 @@ const Controls: FC<Prop> = () => {
       borderBottom="1px solid rgba(0,0,0,0.12)"
     >
       <Stack direction="row">
-        <IconButton size="small" color="primary">
+        <IconButton
+          size="small"
+          color="primary"
+          onClick={() => changeMonth("subtract")}
+        >
           <ArrowBackIos />
         </IconButton>
-        <IconButton>
+        <IconButton
+          size="small"
+          color="primary"
+          onClick={() => changeMonth("add")}
+        >
           <ArrowForwardIos />
         </IconButton>
       </Stack>
