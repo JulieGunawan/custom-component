@@ -3,6 +3,7 @@ import React from "react";
 import Controls from "./Controls";
 import useEventCalendar from "./useEventCalendar";
 import Day from "./Day";
+import ExtraDays from "./ExtraDays";
 
 const EventCalendar = () => {
   const { date, changeMonth, daysGrid } = useEventCalendar();
@@ -14,7 +15,9 @@ const EventCalendar = () => {
           {daysGrid.map((item, i) =>
             item.no ? (
               <Day key={i} daysGridLength={daysGrid.length} item={item} i={i} />
-            ) : null
+            ) : (
+              <ExtraDays key={i} daysGridLength={daysGrid.length} i={i} />
+            )
           )}
         </Grid>
       </Paper>
