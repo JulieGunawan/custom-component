@@ -1,9 +1,10 @@
+import { DaysGrid } from "@/types/types";
 import moment from "moment";
 import { useEffect, useState } from "react";
 
 export default function useEventCalendar() {
   const [date, setDate] = useState(moment());
-  const [daysGrid, setDaysGrid] = useState<Array<any>>([]);
+  const [daysGrid, setDaysGrid] = useState<Array<DaysGrid>>([]);
 
   useEffect(() => {
     getMonthDaysGrid();
@@ -29,6 +30,25 @@ export default function useEventCalendar() {
     } else if (lastDayofMonthDays === 6) {
       totalNextMonthStartDays = 1;
     } else totalNextMonthStartDays = 0;
+
+    const totalDays =
+      date.daysInMonth() + totalLastMonthFinalDays + totalNextMonthStartDays;
+    const monthList: Array<any> = Array.from({ length: totalDays });
+    let counter = 1;
+
+    for (let i = totalLastMonthFinalDays; i < totalDays; i++) {
+      if (i < totalDays - totalNextMonthStartDays)
+        monthList[i] = {
+          no: counter,
+          date: date
+            .clone()
+            .startOf("month")
+            .add(counter - 1, "days"),
+        };
+      counter++;
+    }
+
+    setDaysGrid(monthList);
   };
 
   const changeMonth = (action: "add" | "subtract") => {
@@ -38,5 +58,5 @@ export default function useEventCalendar() {
       setDate((prevDate) => prevDate.subtract(1, "months"));
     }
   };
-  return { date, getMonthDaysGrid, changeMonth };
+  return { date, changeMonth, daysGrid };
 }

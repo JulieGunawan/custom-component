@@ -34,7 +34,7 @@ const Controls: FC<Prop> = ({ changeMonth, date }) => {
           <ArrowForwardIos />
         </IconButton>
       </Stack>
-      <Typography variant="h5">{moment().format("MMMM, YYYY")}</Typography>
+      <Typography variant="h5">{date.format("MMMM, YYYY")}</Typography>
     </Stack>
   );
 };
