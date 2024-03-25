@@ -33,6 +33,9 @@ const Day: FC<Props> = ({ daysGridLength, item, i }) => {
             color={theme.palette.getContrastText(
               isSameDate ? theme.palette.primary.main : "#FFF"
             )}
+            sx={{
+              backgroundColor: 
+            }}
           >
             {item.date.format("DD")}
           </Typography>
