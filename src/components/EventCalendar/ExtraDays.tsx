@@ -33,7 +33,6 @@ const ExtraDays: FC<Props> = ({ daysGridLength, i }) => {
       borderLeft={() => {
         if (i % 7 !== 0) return "1px solid rgb(0, 0, 0, 0.12)";
       }}
-      key={i}
     >
       {i < 7 && (
         <Typography variant="caption" gutterBottom color="rgb(0, 0, 0, 0.4)">

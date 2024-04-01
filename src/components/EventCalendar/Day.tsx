@@ -22,25 +22,43 @@ const Day: FC<Props> = ({ daysGridLength, item, i }) => {
       height="8rem"
       overflow="auto"
       width={`${100 / 7}%`}
+      borderTop="none"
+      paddingTop="0.3em"
+      borderRight="none"
+      borderBottom={() => {
+        if (!(i > 7 * Math.floor(daysGridLength / 7) - 1))
+          return "1px solid rgb(0, 0, 0, 0.12)";
+      }}
+      borderLeft={() => {
+        if (i % 7 !== 0) return "1px solid rgb(0, 0, 0, 0.12)";
+      }}
     >
+      {/* Show the Day name*/}
       {i < 7 && (
         <>
           <Typography variant="caption" gutterBottom color="rgb(0,0,0,0.8)">
             {weekDays[i]}
           </Typography>
-          <Typography
-            variant="caption"
-            color={theme.palette.getContrastText(
-              isSameDate ? theme.palette.primary.main : "#FFF"
-            )}
-            sx={{
-              backgroundColor: 
-            }}
-          >
-            {item.date.format("DD")}
-          </Typography>
+          <br />
         </>
       )}
+      {/** Show the day number */}
+      <Typography
+        variant="caption"
+        color={theme.palette.getContrastText(
+          isSameDate ? theme.palette.primary.main : "#FFF"
+        )}
+        sx={{
+          backgroundColor: isSameDate
+            ? theme.palette.primary.main
+            : "transparent",
+          borderRadius: "50%",
+          padding: "0.5em",
+        }}
+      >
+        {/* {item.date.format("DD")} */}
+        {item.no}
+      </Typography>
     </Grid>
   );
 };
