@@ -5,10 +5,10 @@ const lightTheme = createTheme({
     palette: {
         mode: 'light',
         primary: {
-            main: '#556cd6',
+            main: palette?.primary || '#556cd6',
         },
         secondary: {
-            main: '#19857b',
+            main: pallet?.secondary || '#19857b',
         },
         error: {
             main: red.A400,
